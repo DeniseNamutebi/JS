@@ -27,7 +27,7 @@ test('add user to Controller', () => {
   });
 
 test('remove user to Controller', () => {    
-    user = new User(1234,"Santiago", "santiago@generation.org");
+    user = new User(1235,"Santiago", "santiago@generation.org");
     Controller.add(user);    
     Controller.remove(user);
     expect(Controller.users).not.toContain(user);
@@ -51,10 +51,19 @@ test('find user by email', () => {
   expect(Controller.findByEmail('denise@gmail.com')).toEqual({"email": "denise@gmail.com", "id":1234, "name": "Denise"})
 });
 
+test('find user by email', () => {
+  expect(Controller.findByEmail('santiago@generation.org')).toEqual({"email": "santiago@generation.org", "id":1235, "name": "Santiago"})
+});
+
+
 test('find user by id', () => {
  expect(Controller.findById(1234)).toEqual({"email": "denise@gmail.com", "id":1234, "name": "Denise"})
 });
 
+test('find user by id', () => {
+  expect(Controller.findById(1235)).toEqual({"email": "santiago@generation.org", "id":1235, "name": "Santiago"})
+ });
 
 
 
+ 
